@@ -6,5 +6,6 @@ desc:
 menu:
   HN复读机: categories/hn/
   摇滚大陆漫游记: categories/manyuki/
+max_post: 20
 usercss:
 footer: false

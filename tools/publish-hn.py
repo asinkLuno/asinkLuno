@@ -184,35 +184,63 @@ def publish_comments(items: list[tuple[Path, str, Path]]) -> None:
             discussion_id = created["createDiscussion"]["discussion"]["id"]
 
         marker = f"<!-- hn-source: {hn_id} -->"
+        body = (
+            f"原文链接：https://news.ycombinator.com/item?id={hn_id}\n\n"
+            f"{marker}"
+        )
         comments = graphql(
             """
             query($id:ID!) {
               node(id:$id) {
-                ... on Discussion { comments(first:100) { nodes { body } } }
+                ... on Discussion { comments(first:100) { nodes { id body } } }
               }
             }
             """,
             id=discussion_id,
         )["node"]["comments"]["nodes"]
-        if any(marker in node["body"] for node in comments):
+        existing = next((node for node in comments if marker in node["body"]), None)
+        if existing and existing["body"] == body:
             print(f"跳过已有评论：{title}")
             continue
-
-        body = (
-            f"原文链接：https://news.ycombinator.com/item?id={hn_id}\n\n"
-            f"{comment_path.read_text(encoding='utf-8').strip()}\n\n{marker}"
-        )
-        graphql(
-            """
-            mutation($discussion:ID!, $body:String!) {
-              addDiscussionComment(input:{discussionId:$discussion, body:$body}) {
-                comment { id }
-              }
-            }
-            """,
-            discussion=discussion_id,
-            body=body,
-        )
+        if existing:
+            graphql(
+                """
+                mutation($id:ID!, $body:String!) {
+                  updateDiscussionComment(input:{commentId:$id, body:$body}) {
+                    comment { id }
+                  }
+                }
+                """,
+                id=existing["id"],
+                body=body,
+            )
+            print(f"已精简评论：{title}")
+            continue
+        try:
+            graphql(
+                """
+                mutation($discussion:ID!, $body:String!) {
+                  addDiscussionComment(input:{discussionId:$discussion, body:$body}) {
+                    comment { id }
+                  }
+                }
+                """,
+                discussion=discussion_id,
+                body=body,
+            )
+        except subprocess.CalledProcessError:
+            comments = graphql(
+                """
+                query($id:ID!) {
+                  node(id:$id) {
+                    ... on Discussion { comments(first:100) { nodes { body } } }
+                  }
+                }
+                """,
+                id=discussion_id,
+            )["node"]["comments"]["nodes"]
+            if not any(marker in node["body"] for node in comments):
+                raise
         print(f"已发布评论：{title}")
 
 

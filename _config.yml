@@ -8,6 +8,7 @@ timezone: Asia/Shanghai
 url: https://asinkluno.github.io/asinkLuno
 root: /asinkLuno/
 permalink: :year/:month/:day/:title/
+per_page: 20
 
 category_map:
   HN复读机: hn

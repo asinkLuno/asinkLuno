@@ -28,4 +28,4 @@ date: 2026-07-29 12:00:00
 - 《冰血钻》
 - 《鸣浪》
 - 《一忘皆空》
-- 《智八天才》
+- [《智八天才》](/asinkLuno/categories/novels/zhiba-tiancai/)

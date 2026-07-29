@@ -1,0 +1,15 @@
+title: asinkLuno
+subtitle:
+description:
+author: asinkLuno
+language: zh-CN
+timezone: Asia/Shanghai
+
+url: https://asinkluno.github.io/asinkLuno
+root: /asinkLuno/
+permalink: :year/:month/:day/:title/
+
+theme: minima
+
+deploy:
+  type:

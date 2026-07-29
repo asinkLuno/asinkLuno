@@ -5,7 +5,7 @@ hexo.extend.injector.register(
     data-repo-id="R_kgDOQoBHOw"
     data-category="Announcements"
     data-category-id="DIC_kwDOQoBHO84DCMos"
-    data-mapping="pathname"
+    data-mapping="title"
     data-strict="1"
     data-reactions-enabled="1"
     data-emit-metadata="0"

@@ -9,6 +9,10 @@ url: https://asinkluno.github.io/asinkLuno
 root: /asinkLuno/
 permalink: :year/:month/:day/:title/
 
+category_map:
+  HN复读机: hn
+  摇滚大陆漫游记: manyuki
+
 theme: minima
 
 deploy:

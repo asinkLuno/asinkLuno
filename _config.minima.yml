@@ -4,7 +4,7 @@ email:
 info:
 desc:
 menu:
-  Works:
-  About:
+  HN复读机: categories/hn/
+  摇滚大陆漫游记: categories/manyuki/
 usercss:
 footer: false

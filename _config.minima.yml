@@ -6,6 +6,7 @@ desc:
 menu:
   HN复读机: categories/hn/
   摇滚大陆漫游记: categories/manyuki/
+  最低生存烹饪指南: categories/survival-cooking/
 max_post: 20
 usercss:
 footer: false

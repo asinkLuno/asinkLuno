@@ -1,6 +1,9 @@
 ---
 title: "Claude Fable 给出了雅可比猜想的一个反例"
 date: 2026-07-20 19:04:58
+tags:
+  - AI
+  - 数学
 categories:
   - HN复读机
 ---

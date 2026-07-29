@@ -1,6 +1,9 @@
 ---
 title: "陶哲轩关于雅可比猜想反例的ChatGPT对话"
 date: 2026-07-23 09:24:25
+tags:
+  - AI
+  - 数学
 categories:
   - HN复读机
 ---

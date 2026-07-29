@@ -1,6 +1,8 @@
 ---
 title: "在 Linux 系统上测量输入延迟：X11、Wayland、VRR 和 DXVK 大比拼"
 date: 2026-07-17 09:45:22
+tags:
+  - 编程
 categories:
   - HN复读机
 ---

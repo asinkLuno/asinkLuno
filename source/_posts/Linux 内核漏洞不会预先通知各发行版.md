@@ -1,6 +1,8 @@
 ---
 title: "Linux 内核漏洞不会预先通知各发行版"
 date: 2026-06-26 11:38:21
+tags:
+  - 编程
 categories:
   - HN复读机
 ---

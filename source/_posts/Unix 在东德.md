@@ -1,6 +1,9 @@
 ---
 title: "Unix 在东德"
 date: 2026-06-20 19:52:13
+tags:
+  - 编程
+  - 历史
 categories:
   - HN复读机
 ---

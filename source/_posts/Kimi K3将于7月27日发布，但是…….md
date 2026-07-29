@@ -1,6 +1,8 @@
 ---
 title: "Kimi K3将于7月27日发布，但是……"
 date: 2026-07-27 23:38:02
+tags:
+  - AI
 categories:
   - HN复读机
 ---

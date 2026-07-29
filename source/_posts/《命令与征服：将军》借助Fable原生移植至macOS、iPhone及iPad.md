@@ -1,6 +1,9 @@
 ---
 title: "《命令与征服：将军》借助Fable原生移植至macOS、iPhone及iPad"
 date: 2026-07-06 09:55:04
+tags:
+  - AI
+  - 游戏
 categories:
   - HN复读机
 ---

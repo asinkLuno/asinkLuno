@@ -1,6 +1,8 @@
 ---
 title: "GLM 5.2 的记账准确度已接近人工水平"
 date: 2026-07-10 10:25:37
+tags:
+  - AI
 categories:
   - HN复读机
 ---

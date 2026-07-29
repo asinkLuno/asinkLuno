@@ -1,6 +1,9 @@
 ---
 title: "关于美国政府管制访问 Fable 5 和 Mythos 5 指令的声明"
 date: 2026-06-15 15:04:06
+tags:
+  - AI
+  - 社会
 categories:
   - HN复读机
 ---

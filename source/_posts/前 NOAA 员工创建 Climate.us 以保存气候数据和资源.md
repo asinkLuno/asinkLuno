@@ -1,6 +1,8 @@
 ---
 title: "前 NOAA 员工创建 Climate.us 以保存气候数据和资源"
 date: 2026-07-14 10:32:01
+tags:
+  - 科学
 categories:
   - HN复读机
 ---

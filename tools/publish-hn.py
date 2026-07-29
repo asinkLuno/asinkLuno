@@ -15,6 +15,22 @@ POSTS = ROOT / "source" / "_posts"
 HAS_CHINESE = re.compile(r"[\u3400-\u9fff]")
 REPO = "asinkLuno/asinkLuno"
 CATEGORY = "Announcements"
+TAG_RULES = (
+    ("AI", r"AI|人工智能|GPT|Claude|Kimi|GLM|Fable|开放权重|代理"),
+    ("编程", r"Linux|Unix|Ruff|Emacs|GitHub|终端|纯文本|WordStar|输入延迟|计算"),
+    ("数学", r"雅可比|数学|凸优化|定理"),
+    ("音乐", r"音乐|CD|黑胶|红辣椒|192kHz"),
+    ("文学", r"陀思妥耶夫斯基|阅读|图书"),
+    ("影视", r"电影|电视剧|侏罗纪|电视节目"),
+    ("游戏", r"命令与征服"),
+    ("互联网", r"博客|Flickr|后室"),
+    ("历史", r"东德|年代|150 年|时代之前"),
+    ("社会", r"债务|小学|基因编辑|销毁|政府管制|冒牌货"),
+    ("科学", r"闰秒|真空管|摩尔斯|内存|气候|尼罗河"),
+    ("语言", r"破折号|阿拉伯文字体"),
+    ("生活", r"笔记本|河粉"),
+    ("饮食", r"河粉"),
+)
 
 
 def run(*command: str, capture: bool = False) -> str:
@@ -87,6 +103,21 @@ def import_posts(items: list[tuple[Path, str, Path]]) -> None:
         (POSTS / source.name).write_text(
             front_matter + source.read_text(encoding="utf-8"), encoding="utf-8"
         )
+
+
+def retag_posts() -> None:
+    for path in POSTS.glob("*.md"):
+        text = path.read_text(encoding="utf-8")
+        if "  - HN复读机\n" not in text:
+            continue
+        tags = [tag for tag, pattern in TAG_RULES if re.search(pattern, path.stem, re.I)]
+        tags = tags[:3] or ["科技"]
+        block = "tags:\n" + "".join(f"  - {tag}\n" for tag in tags)
+        if re.search(r"^tags:\n(?:  - .+\n)+", text, re.M):
+            text = re.sub(r"^tags:\n(?:  - .+\n)+", block, text, count=1, flags=re.M)
+        else:
+            text = text.replace("categories:\n", f"{block}categories:\n", 1)
+        path.write_text(text, encoding="utf-8")
 
 
 def deploy() -> None:
@@ -258,6 +289,7 @@ def main() -> None:
         return
 
     import_posts(items)
+    retag_posts()
     deploy()
     publish_comments(items)
 

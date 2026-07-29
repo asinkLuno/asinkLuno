@@ -1,6 +1,8 @@
 ---
 title: "WordStar 作家的文字处理器"
 date: 2026-07-02 11:01:08
+tags:
+  - 编程
 categories:
   - HN复读机
 ---

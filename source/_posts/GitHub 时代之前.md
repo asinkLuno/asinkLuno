@@ -1,6 +1,9 @@
 ---
 title: "GitHub 时代之前"
 date: 2026-07-15 00:21:06
+tags:
+  - 编程
+  - 历史
 categories:
   - HN复读机
 ---

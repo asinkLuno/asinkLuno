@@ -1,6 +1,8 @@
 ---
 title: "谁在为 Flickr 的旧梦买单？"
 date: 2026-06-20 23:04:26
+tags:
+  - 互联网
 categories:
   - HN复读机
 ---

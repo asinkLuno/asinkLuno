@@ -1,6 +1,9 @@
 ---
 title: "AI公司试图隐瞒巨额债务"
 date: 2026-07-24 17:36:36
+tags:
+  - AI
+  - 社会
 categories:
   - HN复读机
 ---

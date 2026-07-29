@@ -30,6 +30,9 @@ jobs:
           cache: yarn
       - run: yarn install --frozen-lockfile
       - run: yarn build
+        env:
+          GITMENT_CLIENT_ID: ${{ vars.GITMENT_CLIENT_ID }}
+          GITMENT_CLIENT_SECRET: ${{ secrets.GITMENT_CLIENT_SECRET }}
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
